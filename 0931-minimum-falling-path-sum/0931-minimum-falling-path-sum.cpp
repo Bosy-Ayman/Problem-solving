@@ -25,13 +25,12 @@ public:
             if (j + 1 < m) {
                 rightDiagonal += dp[i - 1][j + 1];
             } else {
-                rightDiagonal += 1e9; // A very large positive value to represent an invalid path
+                rightDiagonal += 1e9; 
             }
             dp[i][j] = min(up, min(leftDiagonal, rightDiagonal));
         }
     }
 
-    // Find the minimum value in the last row of dp, which represents the minimum path sums ending at each cell
     int mini = INT_MAX;
     for (int j = 0; j < m; j++) {
         mini = min(mini, dp[n - 1][j]);
